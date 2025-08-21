@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Links</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="profile-section">
+            <div class="profile-image">
+                <img src="images/logo.png" alt="Profile Picture" id="profile-pic">
+            </div>
+            <h1 class="profile-name" id="profile-name">Welcome!</h1>
+            <p class="profile-bio" id="profile-bio">Here is everything we use 💻</p>
+        </div>
+
+        <div class="links-section">
+            <div class="links-container" id="links-container">
+                <!-- Links will be dynamically added here -->
+            </div>
+        </div>
+
+        <div class="social-section">
+            <div class="social-links">
+                <a href="#" class="social-link" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-link" title="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="social-link" title="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="#" class="social-link" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Powered by <span class="brand">LinkTree</span></p>
+        </div>
+    </div>
+
+    <!-- Add Link Modal -->
+    <div class="modal" id="addLinkModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Add New Link</h2>
+            <form id="addLinkForm">
+                <div class="form-group">
+                    <label for="linkTitle">Title</label>
+                    <input type="text" id="linkTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="linkUrl">URL</label>
+                    <input type="url" id="linkUrl" required>
+                </div>
+                <div class="form-group">
+                    <label for="linkIcon">Icon (optional)</label>
+                    <input type="text" id="linkIcon" placeholder="e.g., 🚀, 💻, 📱">
+                </div>
+                <div class="form-group">
+                    <label for="linkFolder">Folder</label>
+                    <select id="linkFolder" required>
+                        <option value="Spreadsheets">Spreadsheets</option>
+                        <option value="Links">Links</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-primary">Add Link</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Edit Link Modal -->
+    <div class="modal" id="editLinkModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Edit Link</h2>
+            <form id="editLinkForm">
+                <input type="hidden" id="editLinkIndex">
+                <div class="form-group">
+                    <label for="editLinkTitle">Title</label>
+                    <input type="text" id="editLinkTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="editLinkUrl">URL</label>
+                    <input type="url" id="editLinkUrl" required>
+                </div>
+                <div class="form-group">
+                    <label for="editLinkIcon">Icon (optional)</label>
+                    <input type="text" id="editLinkIcon" placeholder="e.g., 🚀, 💻, 📱">
+                </div>
+                <div class="form-group">
+                    <label for="editLinkFolder">Folder</label>
+                    <select id="editLinkFolder" required>
+                        <option value="Spreadsheets">Spreadsheets</option>
+                        <option value="Links">Links</option>
+                    </select>
+                </div>
+                <input type="hidden" id="editLinkFolderOriginal">
+                <div class="form-buttons">
+                    <button type="submit" class="btn-primary">Save Changes</button>
+                    <button type="button" class="btn-secondary" id="deleteLinkBtn">Delete Link</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+            <!-- Settings Button -->
+        <button class="settings-btn" id="settingsBtn">
+            <i class="fas fa-cog"></i>
+        </button>
+
+        <!-- Dark Mode Toggle -->
+        <button class="theme-toggle-btn" id="themeToggleBtn">
+            <i class="fas fa-moon" id="themeIcon"></i>
+        </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
