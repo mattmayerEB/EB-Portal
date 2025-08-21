@@ -1,0 +1,21 @@
+{
+    "profile": {
+      "name": "Company Name",
+      "bio": "Here is everything we use 💻",
+      "image": "images/logo.png"
+    },
+    "links": {
+      "folders": {
+        "Spreadsheets": [
+          { "title": "CPA Analysis", "url": "https://paulmody-my.sharepoint.com/:x:/r/personal/rcazares_everythingbreaks_com/_layouts/15/doc2.aspx?sourcedoc=%7B4FF39F75-362B-41E7-85FD-EE5121317CFD%7D&file=CPA%20Leads%20Analysis.xlsx&wdLOR=cA10D76FB-6F8C-470E-A6DF-EDF524036F44&fromShare=true&action=default&mobileredirect=true", "icon": "💳" },
+          { "title": "Manual L5 Auth Payment Tracking", "url": "https://paulmody-my.sharepoint.com/:x:/g/personal/farciniega_everythingbreaks_com/Eb9b71VAkoJMpWs8d7CAsGkBMqo_VQQkQkGgh8BhrBBNWQ?e=1Takqf", "icon": "💸" },
+          { "title": "Inline Reinstatement Cron", "url": "https://paulmody-my.sharepoint.com/:x:/g/personal/sazhar_everythingbreaks_com/EW7Y3nCvhgtFmrI9rPSCYykBT04y2QUxznCo-bKqqiuXPQ?e=IfaaVL", "icon": "🎈" },
+          { "title": "EOD Data Summary", "url": "https://paulmody-my.sharepoint.com/:x:/g/personal/sazhar_everythingbreaks_com/EfHG1NR8pjNAo0K3MVweDmwBZZqW1fetV5kZPfX-9pjL1w?e=M1iTGC", "icon": "✅" }
+        ],
+        "Links": [
+          { "title": "My Blog", "url": "https://example.com/blog", "icon": "✍️" }
+        ]
+      }
+    }
+  }
+  
