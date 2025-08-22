@@ -142,45 +142,170 @@ body.dark-mode .profile-bio {
 
 /* Foldered links */
 .folder-section {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    animation: fadeInUp 0.6s ease-out;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  animation: fadeInUp 0.6s ease-out;
+  margin-bottom: 16px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--link-bg);
+  border: 1px solid var(--link-border);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body.dark-mode .folder-section {
+  background: var(--link-bg-dark);
+  border-color: var(--link-border-dark);
+}
+
+.folder-section:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px var(--shadow-color);
+}
+
+body.dark-mode .folder-section:hover {
+  box-shadow: 0 8px 25px var(--shadow-color-dark);
+}
+
+.folder-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.folder-header:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode .folder-header {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .folder-header:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.folder-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.folder-icon {
+  font-size: 1.2rem;
+  color: #f59e0b;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  min-width: 20px;
+}
+
+.folder-section.expanded .folder-icon {
+  color: #10b981;
+  transform: scale(1.1);
 }
 
 .folder-title {
-    color: var(--text-secondary);
-    font-weight: 600;
-    font-size: 1.1rem;
-    letter-spacing: 0.2px;
-    position: relative;
-    padding-left: 20px;
-    animation: slideInLeft 0.6s ease-out;
-    transition: color 0.3s ease;
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.2px;
+  margin: 0;
+  transition: color 0.3s ease;
 }
 
 body.dark-mode .folder-title {
-    color: var(--text-secondary-dark);
+  color: var(--text-primary-dark);
+}
+
+.folder-count {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 500;
+  background: rgba(0, 0, 0, 0.1);
+  padding: 4px 8px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+body.dark-mode .folder-count {
+  color: var(--text-secondary-dark);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.folder-toggle {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  min-width: 16px;
+}
+
+body.dark-mode .folder-toggle {
+  color: var(--text-secondary-dark);
+}
+
+.folder-section.expanded .folder-toggle {
+  transform: rotate(180deg);
+  color: #3b82f6;
+}
+
+body.dark-mode .folder-section.expanded .folder-toggle {
+  color: #60a5fa;
+}
+
+.folder-content {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(5px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+body.dark-mode .folder-content {
+  background: rgba(0, 0, 0, 0.05);
 }
 
 .folder-links {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 8px 0;
 }
 
-.folder-title::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 12px;
-    height: 12px;
-    background: linear-gradient(135deg, #3b82f6, #1e3a8a);
-    border-radius: 50%;
-    animation: pulse 2s infinite;
+.folder-links .link-item {
+  margin: 0 12px 8px 12px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+body.dark-mode .folder-links .link-item {
+  background: rgba(0, 0, 0, 0.1);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.folder-links .link-item:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateX(4px);
+}
+
+body.dark-mode .folder-links .link-item:hover {
+  background: rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.folder-links .link-item:last-child {
+  margin-bottom: 0;
+}
+
+
 
 .link-item {
     background: var(--link-bg);
