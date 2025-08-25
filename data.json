@@ -6,23 +6,37 @@
     },
     "links": {
       "folders": {
-        "Spreadsheets": [
-          { "title": "CPA Analysis", "url": "https://paulmody-my.sharepoint.com/:x:/r/personal/rcazares_everythingbreaks_com/_layouts/15/doc2.aspx?sourcedoc=%7B4FF39F75-362B-41E7-85FD-EE5121317CFD%7D&file=CPA%20Leads%20Analysis.xlsx&wdLOR=cA10D76FB-6F8C-470E-A6DF-EDF524036F44&fromShare=true&action=default&mobileredirect=true", "icon": "💳" },
-          { "title": "Manual L5 Auth Payment Tracking", "url": "https://paulmody-my.sharepoint.com/:x:/g/personal/farciniega_everythingbreaks_com/Eb9b71VAkoJMpWs8d7CAsGkBMqo_VQQkQkGgh8BhrBBNWQ?e=1Takqf", "icon": "💸" },
-          { "title": "EOD Data Summary", "url": "https://paulmody-my.sharepoint.com/:x:/g/personal/sazhar_everythingbreaks_com/EfHG1NR8pjNAo0K3MVweDmwBZZqW1fetV5kZPfX-9pjL1w?e=M1iTGC", "icon": "✅" },
-          { "title": "Vin Updates", "url": "https://paulmody-my.sharepoint.com/:x:/r/personal/jmartinez_everythingbreaks_com/_layouts/15/Doc.aspx?sourcedoc=%7B513B44A6-7F4A-499E-8E36-D881612521B5%7D&file=Vin%20Updates%20-%20Corrections.xlsx&fromShare=true&action=default&mobileredirect=true", "icon": "🚗" },
-          { "title": "Weekly Funding Timeline", "url": "https://paulmody-my.sharepoint.com/:x:/g/personal/sazhar_everythingbreaks_com/EXuQpz09eRlIrW4ENpvn6MsBv4wPEq65s7_UpoPFN9d6jg?e=W0O6wH", "icon": "💰" }
-        ],
-        "CRON Sheets": [
-          { "title": "Inline Resinstatement Cron", "url": "https://paulmody-my.sharepoint.com/:x:/g/personal/sazhar_everythingbreaks_com/EW7Y3nCvhgtFmrI9rPSCYykBT04y2QUxznCo-bKqqiuXPQ?e=IfaaVL", "icon": "💾" }
-        ],
+        
         "Links": [
           { "title": "Inline CRM", "url": "https://everythingbreaks.inlinecrm.com/secure/homepage.aspx", "icon": "🏁" },
           { "title": "Inline Admin", "url": "https://everythingbreaks.inlineadmin.com/secure/homepage", "icon": "📈" },
           { "title": "Line5", "url": "https://www.line5.com/users/sign_in", "icon": "5️⃣" },
           { "title": "MEPCO", "url": "https://www.mepco.com/webview/accounts/list", "icon": "Ⓜ" },
           { "title": "Ytel", "url": "https://ycc.ytel.com/#/login", "icon": "📞" }
-        ]
+        ],
+        "Auto Claims": [],
+        "Home Claims": [],
+        "Chargebacks": [],
+        "Verifications": [],
+        "Member Services": [],
+        "Collections": [],
+        "Data": [
+          { "title": "CPA Analysis", "url": "https://paulmody-my.sharepoint.com/:x:/r/personal/rcazares_everythingbreaks_com/_layouts/15/doc2.aspx?sourcedoc=%7B4FF39F75-362B-41E7-85FD-EE5121317CFD%7D&file=CPA%20Leads%20Analysis.xlsx&wdLOR=cA10D76FB-6F8C-470E-A6DF-EDF524036F44&fromShare=true&action=default&mobileredirect=true", "icon": "💳" },
+          { "title": "Manual L5 Auth Payment Tracking", "url": "https://paulmody-my.sharepoint.com/:x:/g/personal/farciniega_everythingbreaks_com/Eb9b71VAkoJMpWs8d7CAsGkBMqo_VQQkQkGgh8BhrBBNWQ?e=1Takqf", "icon": "💸" },
+          { "title": "EOD Data Summary", "url": "https://paulmody-my.sharepoint.com/:x:/g/personal/sazhar_everythingbreaks_com/EfHG1NR8pjNAo0K3MVweDmwBZZqW1fetV5kZPfX-9pjL1w?e=M1iTGC", "icon": "✅" },
+          { "title": "Vin Updates", "url": "https://paulmody-my.sharepoint.com/:x:/r/personal/jmartinez_everythingbreaks_com/_layouts/15/Doc.aspx?sourcedoc=%7B513B44A6-7F4A-499E-8E36-D881612521B5%7D&file=Vin%20Updates%20-%20Corrections.xlsx&fromShare=true&action=default&mobileredirect=true", "icon": "🚗" },
+          { "title": "Weekly Funding Timeline", "url": "https://paulmody-my.sharepoint.com/:x:/g/personal/sazhar_everythingbreaks_com/EXuQpz09eRlIrW4ENpvn6MsBv4wPEq65s7_UpoPFN9d6jg?e=W0O6wH", "icon": "💰" },
+          { "title": "Missing Loan ID / Apply Payment", "url": "https://paulmody-my.sharepoint.com/:x:/g/personal/sazhar_everythingbreaks_com/EZMsRLqQ-vRBjlzrRmDZRNEBgZzYuKXAICiT8nzrB1JNEg?e=qXWpa0", "icon": "❓" },
+          {
+            "title": "CRON's",
+            "type": "folder",
+            "content": [
+              { "title": "Inline Resinstatement Cron", "url": "https://paulmody-my.sharepoint.com/:x:/g/personal/sazhar_everythingbreaks_com/EW7Y3nCvhgtFmrI9rPSCYykBT04y2QUxznCo-bKqqiuXPQ?e=IfaaVL", "icon": "💾" },
+              { "title": "Inline Auth Cron", "url": "https://paulmody-my.sharepoint.com/:x:/g/personal/sazhar_everythingbreaks_com/EYDHRsrGHbBLmxnizJ2WxB4BbmR6Xfd3iAq28P8BhroRkQ?e=aDvwo3", "icon": "💲" }
+            ]
+          }
+        ],
+        "Brand Rep": []
       }
     }
   }

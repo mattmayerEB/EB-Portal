@@ -27,6 +27,66 @@ async function saveData() {
   console.log("Updated data:", { profile: profileData, links: linksV2 });
 }
 
+// Render a single link item
+function renderLinkItem(link, parentElement) {
+  const item = document.createElement("div");
+  item.className = "link-item";
+  item.innerHTML = `
+    <a href="${link.url}" target="_blank" rel="noopener noreferrer" class="link-main">
+      <div class="link-content">
+        <span class="link-icon">${link.icon || "🔗"}</span>
+        <span class="link-title">${link.title}</span>
+      </div>
+      <span class="link-arrow">→</span>
+    </a>
+  `;
+  parentElement.appendChild(item);
+}
+
+// Render content within a folder (can be links or subfolders)
+function renderFolderContent(contentArray, parentLinksList) {
+  contentArray.forEach(item => {
+    if (item.type === "folder") {
+      // Render as subfolder
+      const subfolderSection = document.createElement("div");
+      subfolderSection.className = "folder-section subfolder-section"; // Add a class for subfolders
+      subfolderSection.setAttribute("data-folder", item.title);
+
+      const subfolderHeader = document.createElement("div");
+      subfolderHeader.className = "folder-header subfolder-header";
+      subfolderHeader.innerHTML = `
+        <div class="folder-info">
+          <i class="fas fa-folder folder-icon"></i>
+          <h3 class="folder-title">${item.title}</h3>
+        </div>
+        <i class="fas fa-chevron-down folder-toggle"></i>
+      `;
+
+      const subfolderContent = document.createElement("div");
+      subfolderContent.className = "folder-content subfolder-content";
+      subfolderContent.style.display = "none"; // Start collapsed
+
+      const sublinksList = document.createElement("div");
+      sublinksList.className = "folder-links";
+      
+      renderFolderContent(item.content, sublinksList); // Recursively render subfolder content
+
+      subfolderContent.appendChild(sublinksList);
+      subfolderSection.appendChild(subfolderHeader);
+      subfolderSection.appendChild(subfolderContent);
+      parentLinksList.appendChild(subfolderSection);
+
+      subfolderHeader.addEventListener('click', () => {
+        toggleFolder(subfolderSection);
+      });
+
+    } else {
+      // Render as a link
+      renderLinkItem(item, parentLinksList);
+    }
+  });
+}
+
 // Load profile data into DOM
 function loadProfileData() {
   document.getElementById("profile-name").textContent = profileData.name;
@@ -85,6 +145,7 @@ function renderLinks() {
   container.innerHTML = "";
   
   Object.keys(linksV2.folders).forEach((folderName) => {
+    const folderData = linksV2.folders[folderName];
     const folderSection = document.createElement("div");
     folderSection.className = "folder-section";
     folderSection.setAttribute("data-folder", folderName);
@@ -95,7 +156,7 @@ function renderLinks() {
       <div class="folder-info">
         <i class="fas fa-folder folder-icon"></i>
         <h3 class="folder-title">${folderName}</h3>
-        <span class="folder-count">${linksV2.folders[folderName].length} items</span>
+        
       </div>
       <i class="fas fa-chevron-down folder-toggle"></i>
     `;
@@ -107,20 +168,7 @@ function renderLinks() {
     const linksList = document.createElement("div");
     linksList.className = "folder-links";
     
-    linksV2.folders[folderName].forEach((link) => {
-      const item = document.createElement("div");
-      item.className = "link-item";
-      item.innerHTML = `
-        <a href="${link.url}" target="_blank" rel="noopener noreferrer" class="link-main">
-          <div class="link-content">
-            <span class="link-icon">${link.icon || "🔗"}</span>
-            <span class="link-title">${link.title}</span>
-          </div>
-          <span class="link-arrow">→</span>
-        </a>
-      `;
-      linksList.appendChild(item);
-    });
+    renderFolderContent(folderData, linksList); // Call new recursive function
 
     folderContent.appendChild(linksList);
     folderSection.appendChild(folderHeader);

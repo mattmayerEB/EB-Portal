@@ -49,7 +49,7 @@ body.dark-mode {
 }
 
 .container {
-    max-width: 680px;
+    max-width: 1200px; /* Increased max-width to allow folders to be wider */
     margin: 0 auto;
     padding: 20px;
     min-height: 100vh;
@@ -136,22 +136,33 @@ body.dark-mode .profile-bio {
 
 .links-container {
     display: flex;
-    flex-direction: column;
-    gap: 16px;
+    flex-direction: row; /* Change to row for horizontal layout */
+    flex-wrap: wrap; /* Allow folders to wrap to the next line */
+    gap: 20px; /* Adjust gap for spacing between folders */
+    justify-content: center; /* Center the folders */
 }
 
 /* Foldered links */
 .folder-section {
   display: flex;
   flex-direction: column;
+  width: calc(33.333% - 13.333px); /* Three columns with spacing, wider */
+  min-height: 120px; /* Adjust height for 3 columns */
   gap: 0;
   animation: fadeInUp 0.6s ease-out;
-  margin-bottom: 16px;
+  margin: 0; /* Remove individual margin-bottom */
   border-radius: 12px;
   overflow: hidden;
   background: var(--link-bg);
   border: 1px solid var(--link-border);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.subfolder-section {
+  margin-left: 0; /* Remove left margin to make it full width within parent */
+  border-left: 3px solid var(--input-focus-border); /* Add a visual indicator */
+  padding-left: 10px; /* Adjust padding for the border and visual spacing */
+  width: calc(100% - 10px); /* Make subfolder take full width of its parent minus padding */
 }
 
 body.dark-mode .folder-section {
@@ -179,12 +190,17 @@ body.dark-mode .folder-section:hover {
   backdrop-filter: blur(10px);
 }
 
+.subfolder-header {
+  padding: 12px 10px; /* Adjust padding for subfolder header to match parent's inner padding */
+}
+
 .folder-header:hover {
   background: rgba(255, 255, 255, 0.2);
 }
 
 body.dark-mode .folder-header {
   background: rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Add a subtle border for dark mode */
 }
 
 body.dark-mode .folder-header:hover {
@@ -194,7 +210,7 @@ body.dark-mode .folder-header:hover {
 .folder-info {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px; /* Reduced gap to give more space for text */
   flex: 1;
 }
 
@@ -213,9 +229,12 @@ body.dark-mode .folder-header:hover {
 .folder-title {
   color: var(--text-primary);
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: 1rem; /* Reduced font size to help fit on one line */
   letter-spacing: 0.2px;
   margin: 0;
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden; /* Hide overflowing text */
+  text-overflow: ellipsis; /* Add ellipsis for overflowing text */
   transition: color 0.3s ease;
 }
 
@@ -263,6 +282,10 @@ body.dark-mode .folder-section.expanded .folder-toggle {
   backdrop-filter: blur(5px);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
+  flex-grow: 1; /* Allow content to grow and fill space */
+  display: flex; /* Use flex to align items within the content */
+  flex-direction: column;
+  justify-content: space-between; /* Push buttons to the bottom if present */
 }
 
 body.dark-mode .folder-content {
@@ -273,11 +296,11 @@ body.dark-mode .folder-content {
   display: flex;
   flex-direction: column;
   gap: 0;
-  padding: 8px 0;
+  padding: 8px 15px; /* Further increased horizontal padding for children */
 }
 
 .folder-links .link-item {
-  margin: 0 12px 8px 12px;
+  margin: 0 0 8px 0; /* Adjusted margin for better alignment */
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -799,6 +822,16 @@ body.dark-mode .form-group select:focus {
     .link-item {
         padding: 14px 16px;
         font-size: 0.95rem;
+    }
+    
+    .links-container {
+        flex-direction: column; /* Stack folders vertically on smaller screens */
+        gap: 16px;
+    }
+
+    .folder-section {
+        width: 100%; /* Full width on smaller screens */
+        min-height: unset;
     }
     
     .social-links {
