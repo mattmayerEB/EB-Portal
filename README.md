@@ -1,6 +1,27 @@
-# LinkTree-Style Website
+# EB Portal - Secure Link Management System
 
-A modern, responsive LinkTree-style website built with HTML, CSS, and JavaScript. Perfect for creating a personal link hub to share all your important links in one place.
+A modern, secure portal for managing and sharing important links and resources. Built with HTML, CSS, JavaScript, and Firebase Authentication for enterprise-grade security.
+
+## 🔐 Security Features
+
+- **Firebase Authentication**: Secure email/password login system
+- **Protected Content**: All resources require authentication to access
+- **Session Management**: Automatic login state handling
+- **Secure Logout**: Proper session termination
+- **Admin-Only Access**: Only pre-created users can access the portal (sign-up disabled)
+
+## ✨ Features
+
+- **Secure Login System**: Firebase-powered authentication
+- **Modern Design**: Clean, responsive design with smooth animations
+- **Customizable Profile**: Update your name, bio, and profile picture
+- **Dynamic Links**: Add, edit, and manage your links through a user-friendly interface
+- **Social Media Integration**: Built-in social media links section
+- **Local Storage**: Your links and profile data are saved locally
+- **Mobile Responsive**: Works perfectly on all devices
+- **Keyboard Shortcuts**: Quick access to add links (Ctrl/Cmd + K)
+- **Click Tracking**: Basic analytics for link clicks
+- **Dark Mode**: Toggle between light and dark themes
 
 ## ✨ Features
 
@@ -15,9 +36,26 @@ A modern, responsive LinkTree-style website built with HTML, CSS, and JavaScript
 
 ## 🚀 Getting Started
 
+### Prerequisites
+- A Firebase account (free tier available)
+- Basic knowledge of web development
+
+### Setup Instructions
+
 1. **Download/Clone** the files to your local machine
-2. **Open** `index.html` in your web browser
-3. **Customize** your profile and links using the settings button (gear icon)
+2. **Set up Firebase Authentication**:
+   - Follow the detailed guide in `FIREBASE_SETUP.md`
+   - Create a Firebase project and enable authentication
+   - Update `firebase-config.js` with your Firebase credentials
+3. **Open** `index.html` in your web browser
+4. **Create user accounts** in Firebase Console (see FIREBASE_SETUP.md)
+5. **Sign in** to access your secure portal
+6. **Customize** your profile and links using the settings button (gear icon)
+
+### Quick Firebase Setup
+1. Copy `firebase-config-demo.js` to `firebase-config.js`
+2. Replace the placeholder values with your actual Firebase configuration
+3. Enable Email/Password authentication in Firebase Console
 
 ## 🎨 Customization
 
@@ -83,16 +121,23 @@ The website comes with sample links that you can customize:
 
 ### File Structure
 ```
-├── index.html      # Main HTML file
-├── styles.css      # CSS styling
-├── script.js       # JavaScript functionality
-└── README.md       # This file
+├── index.html              # Main HTML file with login system
+├── styles.css              # CSS styling including login styles
+├── script.js               # JavaScript functionality
+├── firebase-config.js      # Firebase configuration (create from demo)
+├── firebase-config-demo.js # Demo Firebase config template
+├── login.js                # Login functionality
+├── FIREBASE_SETUP.md       # Detailed Firebase setup guide
+├── data.json               # Sample data
+├── images/                 # Images directory
+└── README.md               # This file
 ```
 
 ### Dependencies
 - **Font Awesome**: For social media icons
 - **Google Fonts**: Inter font family
-- **No external JavaScript libraries required**
+- **Firebase SDK**: For authentication (loaded from CDN)
+- **No additional JavaScript libraries required**
 
 ### Browser Support
 - Chrome (recommended)

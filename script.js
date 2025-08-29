@@ -206,8 +206,8 @@ function toggleFolder(folderSection) {
 
 // Initialize
 document.addEventListener("DOMContentLoaded", () => {
-  loadData();
-  initTheme();
+  // Check authentication status first
+  checkAuthStatus();
   
   // Add event listener for theme toggle button
   const themeToggleBtn = document.getElementById('themeToggleBtn');
@@ -215,3 +215,30 @@ document.addEventListener("DOMContentLoaded", () => {
     themeToggleBtn.addEventListener('click', toggleTheme);
   }
 });
+
+// Check authentication status
+function checkAuthStatus() {
+  const user = getCurrentUser();
+  if (user) {
+    // User is authenticated, show main content
+    showMainContent();
+    loadData();
+    initTheme();
+  } else {
+    // User is not authenticated, show login
+    showLoginPage();
+  }
+}
+
+// Handle logout
+function handleLogout() {
+  signOut()
+    .then(() => {
+      console.log('Logged out successfully');
+      showLoginPage();
+    })
+    .catch((error) => {
+      console.error('Logout error:', error);
+      alert('Logout failed. Please try again.');
+    });
+}
