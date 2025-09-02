@@ -95,9 +95,28 @@ function loadProfileData() {
   img.src = profileData.image;
 }
 
+// Quick Resources Toggle
+function initQuickResources() {
+    const trigger = document.getElementById('quick-resources-trigger');
+    const section = document.querySelector('.quick-resources-section');
+    
+    if (trigger && section) {
+        trigger.addEventListener('click', () => {
+            section.classList.toggle('show-dropdown');
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!section.contains(e.target)) {
+                section.classList.remove('show-dropdown');
+            }
+        });
+    }
+}
+
 // Theme management functions
 function initTheme() {
-  // Check localStorage for saved theme preference
+    // Check localStorage for saved theme preference
   const savedTheme = localStorage.getItem('theme');
   if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
     enableDarkMode();
@@ -224,6 +243,7 @@ function checkAuthStatus() {
     showMainContent();
     loadData();
     initTheme();
+    initQuickResources();
   } else {
     // User is not authenticated, show login
     showLoginPage();
