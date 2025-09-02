@@ -68,36 +68,87 @@
     <!-- Main content (hidden when not authenticated) -->
     <div class="main-content" id="main-content" style="display: none;">
         <div class="container">
-        <div class="profile-section">
-            <div class="profile-image">
-                <img src="images/logo.png" alt="Profile Picture" id="profile-pic">
-            </div>
-            <h1 class="profile-name" id="profile-name">Welcome!</h1>
-            <p class="profile-bio" id="profile-bio">Here is everything we use 💻</p>
-        </div>
+            <div class="content-wrapper">
+                <div class="main-links-section">
+                    <div class="profile-section">
+                        <div class="profile-image">
+                            <img src="images/logo.png" alt="Profile Picture" id="profile-pic">
+                        </div>
+                        <h1 class="profile-name" id="profile-name">Welcome!</h1>
+                        <p class="profile-bio" id="profile-bio">Here is everything we use 💻</p>
+                    </div>
 
-        <div class="links-section">
-            <div class="links-container" id="links-container">
-                <!-- Links will be dynamically added here -->
+                    <div class="links-section">
+                        <div class="links-container" id="links-container">
+                            <!-- Links will be dynamically added here -->
+                        </div>
+                    </div>
+
+                    <div class="social-section">
+                        <div class="social-links">
+                            <a href="https://youtu.be/ZclyGS6UH4A?si=fqg5tmRkWG9CSBrr" class="social-link" title="YouTube" target="_blank">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/company/everything-breaks-inc/posts/?feedView=all" class="social-link" title="LinkedIn" target="_blank">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="footer">
+                        <p>Developed by <span class="brand">EverythingBreaks.com</span></p>
+                    </div>
+                </div>
+
+                <div class="quick-resources-section">
+                    <div class="quick-resources-header">
+                        <h2>Quick Resources 🚀</h2>
+                        <p>Most commonly used links</p>
+                    </div>
+                    
+                    <div class="quick-resources-list">
+                        <a href="https://everythingbreaks.inlinecrm.com/secure/homepage.aspx" target="_blank" class="quick-resource-item" title="Inline CRM">
+                            <div class="quick-resource-icon">
+                                <i class="fas fa-pencil-alt"></i>
+                            </div>
+                            <div class="quick-resource-content">
+                                <h3>Inline CRM</h3>
+                                <p>Client Relationship Management</p>
+                            </div>
+                            <div class="quick-resource-arrow">
+                                <i class="fas fa-external-link-alt"></i>
+                            </div>
+                        </a>
+
+                        <a href="https://www.line5.com/dealers/4670-everything-breaks-2/loans" target="_blank" class="quick-resource-item" title="Line5">
+                            <div class="quick-resource-icon">
+                                <i class="fas fa-5"></i>
+                            </div>
+                            <div class="quick-resource-content">
+                                <h3>Line5</h3>
+                                <p>Loan Management</p>
+                            </div>
+                            <div class="quick-resource-arrow">
+                                <i class="fas fa-external-link-alt"></i>
+                            </div>
+                        </a>
+
+                        <a href="https://ycc.ytel.com/#/login" target="_blank" class="quick-resource-item" title="Ytel">
+                            <div class="quick-resource-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="quick-resource-content">
+                                <h3>Ytel</h3>
+                                <p>Dialer</p>
+                            </div>
+                            <div class="quick-resource-arrow">
+                                <i class="fas fa-external-link-alt"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <div class="social-section">
-            <div class="social-links">
-                <a href="https://youtu.be/ZclyGS6UH4A?si=fqg5tmRkWG9CSBrr" class="social-link" title="YouTube" target="_blank">
-                    <i class="fab fa-youtube"></i>
-                </a>
-                <a href="https://www.linkedin.com/company/everything-breaks-inc/posts/?feedView=all" class="social-link" title="LinkedIn" target="_blank">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                
-            </div>
-        </div>
-
-        <div class="footer">
-            <p>Developed by <span class="brand">EverythingBreaks.com</span></p>
-        </div>
-    </div>
 
     <!-- Add Link Modal -->
     <div class="modal" id="addLinkModal">
