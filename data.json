@@ -19,7 +19,9 @@
         "Chargebacks": [],
         "Verifications": [],
         "Member Services": [],
-        "Collections": [],
+        "Collections": [
+          { "title": "L5 Manual Collections and Conversions", "url": "https://paulmody-my.sharepoint.com/:x:/g/personal/farciniega_everythingbreaks_com/EReVZzard89AiSC8kumye6cB9bf0oOFxWacV29GEivkNTg?e=8E4y8H", "icon": "💲" }
+        ],
         "Data": [
           { "title": "CPA Analysis", "url": "https://paulmody-my.sharepoint.com/:x:/r/personal/rcazares_everythingbreaks_com/_layouts/15/doc2.aspx?sourcedoc=%7B4FF39F75-362B-41E7-85FD-EE5121317CFD%7D&file=CPA%20Leads%20Analysis.xlsx&wdLOR=cA10D76FB-6F8C-470E-A6DF-EDF524036F44&fromShare=true&action=default&mobileredirect=true", "icon": "💳" },
           { "title": "Manual L5 Auth Payment Tracking", "url": "https://paulmody-my.sharepoint.com/:x:/g/personal/farciniega_everythingbreaks_com/Eb9b71VAkoJMpWs8d7CAsGkBMqo_VQQkQkGgh8BhrBBNWQ?e=1Takqf", "icon": "💸" },
