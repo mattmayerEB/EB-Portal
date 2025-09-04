@@ -5,6 +5,10 @@ let profileData = {};
 // Theme management
 let isDarkMode = false;
 
+// Executive folder password protection
+let isExecutiveFolderUnlocked = false;
+const EXECUTIVE_PASSWORD = "EB2025Exec"; // Change this to your desired password
+
 // Load data.json
 async function loadData() {
   try {
@@ -171,11 +175,16 @@ function renderLinks() {
 
     const folderHeader = document.createElement("div");
     folderHeader.className = "folder-header";
+    
+    // Check if this is the Executives folder and if it's locked
+    const isExecutivesFolder = folderName === "Executives";
+    const isLocked = isExecutivesFolder && !isExecutiveFolderUnlocked;
+    
     folderHeader.innerHTML = `
       <div class="folder-info">
-        <i class="fas fa-folder folder-icon"></i>
+        <i class="fas ${isLocked ? 'fa-lock' : 'fa-folder'} folder-icon ${isLocked ? 'locked' : ''}"></i>
         <h3 class="folder-title">${folderName}</h3>
-        
+        ${isLocked ? '<span class="locked-indicator">🔒</span>' : ''}
       </div>
       <i class="fas fa-chevron-down folder-toggle"></i>
     `;
@@ -196,7 +205,12 @@ function renderLinks() {
 
     // Add click event to toggle folder
     folderHeader.addEventListener('click', () => {
-      toggleFolder(folderSection);
+      if (isExecutivesFolder && !isExecutiveFolderUnlocked) {
+        // Show password prompt for locked Executives folder
+        showExecutivePasswordModal();
+      } else {
+        toggleFolder(folderSection);
+      }
     });
   });
 }
@@ -233,6 +247,9 @@ document.addEventListener("DOMContentLoaded", () => {
   if (themeToggleBtn) {
     themeToggleBtn.addEventListener('click', toggleTheme);
   }
+  
+  // Initialize executive password modal
+  initExecutivePasswordModal();
 });
 
 // Check authentication status
@@ -255,10 +272,99 @@ function handleLogout() {
   signOut()
     .then(() => {
       console.log('Logged out successfully');
+      // Reset executive folder lock on logout
+      isExecutiveFolderUnlocked = false;
       showLoginPage();
     })
     .catch((error) => {
       console.error('Logout error:', error);
       alert('Logout failed. Please try again.');
     });
+}
+
+// Executive folder password protection functions
+function showExecutivePasswordModal() {
+  const modal = document.getElementById('executivePasswordModal');
+  const passwordInput = document.getElementById('executivePassword');
+  const errorDiv = document.getElementById('executivePasswordError');
+  
+  // Clear previous state
+  passwordInput.value = '';
+  errorDiv.style.display = 'none';
+  errorDiv.textContent = '';
+  
+  // Show modal
+  modal.style.display = 'block';
+  
+  // Focus on password input
+  setTimeout(() => passwordInput.focus(), 100);
+}
+
+function hideExecutivePasswordModal() {
+  const modal = document.getElementById('executivePasswordModal');
+  modal.style.display = 'none';
+}
+
+function validateExecutivePassword(password) {
+  return password === EXECUTIVE_PASSWORD;
+}
+
+function unlockExecutiveFolder() {
+  isExecutiveFolderUnlocked = true;
+  hideExecutivePasswordModal();
+  
+  // Re-render the links to update the folder appearance
+  renderLinks();
+  
+  // Auto-expand the Executives folder
+  const executivesFolder = document.querySelector('[data-folder="Executives"]');
+  if (executivesFolder) {
+    toggleFolder(executivesFolder);
+  }
+}
+
+function showExecutivePasswordError(message) {
+  const errorDiv = document.getElementById('executivePasswordError');
+  errorDiv.textContent = message;
+  errorDiv.style.display = 'block';
+}
+
+// Initialize executive password modal event listeners
+function initExecutivePasswordModal() {
+  const modal = document.getElementById('executivePasswordModal');
+  const form = document.getElementById('executivePasswordForm');
+  const cancelBtn = document.getElementById('cancelExecutiveAccess');
+  const closeBtn = modal.querySelector('.close');
+  
+  // Handle form submission
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const password = document.getElementById('executivePassword').value;
+    
+    if (validateExecutivePassword(password)) {
+      unlockExecutiveFolder();
+    } else {
+      showExecutivePasswordError('Incorrect password. Please try again.');
+    }
+  });
+  
+  // Handle cancel button
+  cancelBtn.addEventListener('click', hideExecutivePasswordModal);
+  
+  // Handle close button
+  closeBtn.addEventListener('click', hideExecutivePasswordModal);
+  
+  // Handle clicking outside modal
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      hideExecutivePasswordModal();
+    }
+  });
+  
+  // Handle escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.style.display === 'block') {
+      hideExecutivePasswordModal();
+    }
+  });
 }
